@@ -1,0 +1,262 @@
+/* ==========================================================
+   AETHERIA 3D ROUTINE ORGANIZER - STYLESHEET
+   Cores Principais (Degradê): 
+   - Ciano Neon (#00f2fe)
+   - Roxo Elétrico (#7f00ff)
+   - Rosa Magenta (#ff007f)
+   ========================================================== */
+
+:root {
+  --bg-dark: #05050c;
+  --bg-card: rgba(18, 18, 32, 0.65);
+  --bg-card-hover: rgba(28, 28, 50, 0.85);
+  
+  /* Três cores em degradê */
+  --color-cyan: #00f2fe;
+  --color-purple: #7f00ff;
+  --color-pink: #ff007f;
+  --grad-main: linear-gradient(135deg, var(--color-cyan) 0%, var(--color-purple) 50%, var(--color-pink) 100%);
+  --grad-text: linear-gradient(90deg, #00f2fe, #7f00ff, #ff007f);
+  --grad-glass: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.02) 100%);
+
+  --text-primary: #f0f2fa;
+  --text-secondary: #9499b8;
+  --border-color: rgba(255, 255, 255, 0.12);
+  --border-glow: rgba(127, 0, 255, 0.4);
+  
+  --radius-lg: 20px;
+  --radius-md: 12px;
+  --shadow-3d: 0 20px 40px rgba(0, 0, 0, 0.8), 0 0 30px rgba(127, 0, 255, 0.25);
+  --font-main: 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg-dark);
+  color: var(--text-primary);
+  font-family: var(--font-main);
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+  background-image: 
+    radial-gradient(circle at 15% 20%, rgba(0, 242, 254, 0.12) 0%, transparent 40%),
+    radial-gradient(circle at 85% 75%, rgba(255, 0, 127, 0.12) 0%, transparent 40%),
+    radial-gradient(circle at 50% 50%, rgba(127, 0, 255, 0.1) 0%, transparent 60%);
+}
+
+/* ==========================================
+   OBJETOS 3D VOANDO AO FUNDO
+   ========================================== */
+.scene-3d {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 0;
+  perspective: 1000px;
+  overflow: hidden;
+}
+
+.shape-3d {
+  position: absolute;
+  transform-style: preserve-3d;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  opacity: 0.75;
+  filter: drop-shadow(0 0 15px rgba(127, 0, 255, 0.6));
+}
+
+/* Cubo 3D 1 */
+.cube-1 {
+  top: 12%;
+  left: 8%;
+  width: 70px;
+  height: 70px;
+  animation: floatCube1 14s ease-in-out infinite alternate;
+}
+
+/* Octaedro / Pirâmide 3D 2 */
+.pyramid-2 {
+  top: 65%;
+  left: 82%;
+  width: 90px;
+  height: 90px;
+  animation: floatPyramid 18s ease-in-out infinite alternate;
+}
+
+/* Anel Torus 3D 3 */
+.ring-3 {
+  top: 75%;
+  left: 12%;
+  width: 110px;
+  height: 110px;
+  animation: floatRing 16s ease-in-out infinite alternate;
+}
+
+/* Esfera/Cubo 3D 4 */
+.cube-4 {
+  top: 20%;
+  left: 80%;
+  width: 60px;
+  height: 60px;
+  animation: floatCube2 12s ease-in-out infinite alternate;
+}
+
+/* Estrutura das Faces 3D */
+.cube-face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  background: var(--grad-main);
+  opacity: 0.7;
+}
+
+.cube-1 .front  { transform: translateZ(35px); }
+.cube-1 .back   { transform: rotateY(180deg) translateZ(35px); }
+.cube-1 .right  { transform: rotateY(90deg) translateZ(35px); }
+.cube-1 .left   { transform: rotateY(-90deg) translateZ(35px); }
+.cube-1 .top    { transform: rotateX(90deg) translateZ(35px); }
+.cube-1 .bottom { transform: rotateX(-90deg) translateZ(35px); }
+
+.cube-4 .front  { transform: translateZ(30px); background: linear-gradient(135deg, #ff007f, #00f2fe); }
+.cube-4 .back   { transform: rotateY(180deg) translateZ(30px); }
+.cube-4 .right  { transform: rotateY(90deg) translateZ(30px); }
+.cube-4 .left   { transform: rotateY(-90deg) translateZ(30px); }
+.cube-4 .top    { transform: rotateX(90deg) translateZ(30px); }
+.cube-4 .bottom { transform: rotateX(-90deg) translateZ(30px); }
+
+.ring-inner {
+  width: 100%;
+  height: 100%;
+  border: 8px solid transparent;
+  border-top-color: var(--color-cyan);
+  border-right-color: var(--color-purple);
+  border-bottom-color: var(--color-pink);
+  border-radius: 50%;
+  box-shadow: 0 0 20px var(--color-cyan);
+}
+
+@keyframes floatCube1 {
+  0% { transform: translate3d(0, 0, 0) rotateX(0deg) rotateY(0deg) rotateZ(0deg); }
+  50% { transform: translate3d(30px, 50px, 100px) rotateX(180deg) rotateY(120deg) rotateZ(90deg); }
+  100% { transform: translate3d(-20px, 100px, -50px) rotateX(360deg) rotateY(360deg) rotateZ(180deg); }
+}
+
+@keyframes floatPyramid {
+  0% { transform: translate3d(0, 0, 0) rotateX(45deg) rotateY(0deg); }
+  50% { transform: translate3d(-40px, -60px, 80px) rotateX(225deg) rotateY(180deg); }
+  100% { transform: translate3d(20px, -120px, -30px) rotateX(405deg) rotateY(360deg); }
+}
+
+@keyframes floatRing {
+  0% { transform: rotateX(60deg) rotateY(0deg) translateZ(0); }
+  50% { transform: rotateX(240deg) rotateY(180deg) translate3d(40px, -40px, 60px); }
+  100% { transform: rotateX(420deg) rotateY(360deg) translateZ(0); }
+}
+
+@keyframes floatCube2 {
+  0% { transform: translate3d(0, 0, 0) rotateX(0deg) rotateY(360deg); }
+  100% { transform: translate3d(-50px, 80px, 120px) rotateX(360deg) rotateY(0deg); }
+}
+
+/* ==========================================
+   CONTAINER & CABEÇALHO
+   ========================================== */
+.app-container {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px 80px 20px;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.header-tag {
+  display: inline-block;
+  padding: 6px 16px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 50px;
+  font-size: 0.85rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--color-cyan);
+  margin-bottom: 15px;
+  backdrop-filter: blur(10px);
+}
+
+header h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  background: var(--grad-text);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: -1px;
+  margin-bottom: 12px;
+  text-shadow: 0 10px 30px rgba(127, 0, 255, 0.3);
+}
+
+header p {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* ==========================================
+   GRID DE CARDS (3D HORIZON & GLASS)
+   ========================================== */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 30px;
+  perspective: 1000px;
+}
+
+.card-3d {
+  background: var(--bg-card);
+  background-image: var(--grad-glass);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(16px);
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
+              box-shadow 0.4s ease, 
+              border-color 0.4s ease;
+  transform-style: preserve-3d;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card-3d::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: var(--grad-main);
+  opacity: 0.7;
+  transition: opacity 0.3s;
+}
+
+.card-3d:hover {
+  transform: translateY(-12px) rotateX(4deg) rotateY(-2deg) scale(1.02);
+  box-shadow: var(--shadow-3d);
+  border-color: rgba(255, 0, 127

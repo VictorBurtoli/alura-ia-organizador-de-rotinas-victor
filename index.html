@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KINETIX 3D — Organizador de Rotinas Moderno</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- CENÁRIO 3D COM OBJETOS VOANDO AO FUNDO -->
+  <div class="scene-3d">
+    <!-- Cubo 1 -->
+    <div class="shape-3d cube-1">
+      <div class="cube-face front"></div>
+      <div class="cube-face back"></div>
+      <div class="cube-face right"></div>
+      <div class="cube-face left"></div>
+      <div class="cube-face top"></div>
+      <div class="cube-face bottom"></div>
+    </div>
+    
+    <!-- Anel 3D -->
+    <div class="shape-3d ring-3">
+      <div class="ring-inner"></div>
+    </div>
+
+    <!-- Cubo 2 -->
+    <div class="shape-3d cube-4">
+      <div class="cube-face front"></div>
+      <div class="cube-face back"></div>
+      <div class="cube-face right"></div>
+      <div class="cube-face left"></div>
+      <div class="cube-face top"></div>
+      <div class="cube-face bottom"></div>
+    </div>
+  </div>
+
+  <!-- CONTEÚDO PRINCIPAL -->
+  <div class="app-container">
+    <header>
+      <span class="header-tag">Sistema de Alta Performance</span>
+      <h1>KINETIX 3D</h1>
+      <p>Gerencie sua rotina diária em dimensões otimizadas de produtividade, saúde e bem-estar.</p>
+    </header>
+
+    <!-- GRID DE CARDS COM AS 6 ROTINAS -->
+    <main class="cards-grid">
+      
+      <!-- CARD 1: ESTUDO -->
+      <article class="card-3d" data-category="estudo">
+        <div>
+          <div class="card-header">
+            <div class="card-icon">🎓</div>
+            <span class="card-badge">Foco & Cognição</span>
+          </div>
+          <div class="card-body">
+            <h3>Estudo</h3>
+            <p>Sessões Pomodoro, revisão espaçada, leitura técnica e aprendizado contínuo.</p>
+          </div>
+        </div>
+        <div>
+          <div class="card-stats">
+            <div class="stat-item">
+              <div class="stat-value">3.5h</div>
+              <div class="stat-label">Meta Diária</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-value">85%</div>
+              <div class="stat-label">Concluído</div>
+            </div>
+          </div>
+          <div class="card-actions">
+            <button class="btn btn-outline" onclick="openModal('estudo')">Detalhes Modal</button>
+            <a href="estudo.html" class="btn btn-primary">Ver Página →</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- CARD 2: TRABALHO -->
+      <article class="card-3d" data-category="trabalho">
+        <div>
+          <div class="card-header">
+            <div class="card-icon">💼</div>
+            <span class="card-badge">Produtividade</span>
+          </div>
+          <div class="card-body">
+            <h3>Trabalho</h3>
+            <p>Gerenciamento de projetos, entregas prioritárias, reuniões e fluxo profissional.</p>
+          </div>
+        </div>
+        <div>
+          <div class="card-stats">
+            <div class="stat-item">
+              <div class="stat-value">7.0h</div>
+              <div class="stat-label">Meta Diária</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-value">60%</div>
+              <div class="stat-label">Concluído</div>
+            </div>
+          </div>
+          <div class="card-actions">
+            <button class="btn btn-outline" onclick="openModal('trabalho')">Detalhes Modal</button>
+            <a href="trabalho.html" class="btn btn-primary">Ver Página →</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- CARD 3: LAZER -->
+      <article class="card-3d" data-category="lazer">
+        <div>
+          <div class="card-header">
+            <div class="card-icon">🎮</div>
+            <span class="card-badge">Desconexão</span>
+          </div>
+          <div class="card-body">
+            <h3>Lazer</h3>
+            <p>Jogos, filmes, descanso mental e momentos de relaxamento sem culpa.</p>
+          </div>
+        </div>
+        <div>
+          <div class="card-stats">
+            <div class="stat-item">
+              <div class="stat-value">2.0h</div>
+              <div class="stat-label">Meta Diária</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-value">100%</div>
+              <div class="stat-label">Concluído</div>
+            </div>
+          </div>
+          <div class="card-actions">
+            <button class="btn btn-outline" onclick="openModal('lazer')">Detalhes Modal</button>
+            <a href="lazer.html" class="btn btn-primary">Ver Página →</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- CARD 4: HOBBY -->
+      <article class="card-3d" data-category="hobby">
+        <div>
+          <div class="card-header">
+            <div class="card-icon">🎨</div>
+            <span class="card-badge">Criatividade</span>
+          </div>
+          <div class="card-body">
+            <h3>Hobby</h3>
+            <p>Música, pintura, projetos pessoais, fotografia e desenvolvimento criativo.</p>
+          </div>
+        </div>
+        <div>
+          <div class="card-stats">
+            <div class="stat-item">
+              <div class="stat-value">1.5h</div>
+              <div class="stat-label">Meta Diária</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-value">40%</div>
+              <div class="stat-label">Concluído</div>
+            </div>
+          </div>
+          <div class="card-actions">
+            <button class="btn btn-outline" onclick="openModal('hobby')">Detalhes Modal</button>
+            <a href="hobby.html" class="btn btn-primary">Ver Página →</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- CARD 5: ESPORTES -->
+      <article class="card-3d" data-category="esportes">
+        <div>
+          <div class="card-header">
+            <div class="card-icon">🏋️</div>
+            <span class="card-badge">Energia & Força</span>
+          </div>
+          <div class="card-body">
+            <h3>Esportes</h3>
+            <p>Treinamento muscular, corrida cardio, mobilidade e alto rendimento corporal.</p>
+          </div>
+        </div>
+        <div>
+          <div class="card-stats">
+            <div class="stat-item">
+              <div class="stat-value">1.5h</div>
+              <div class="stat-label">Meta Diária</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-value">90%</div>
+              <div class="stat-label">Concluído</div>
+            </div>
+          </div>
+          <div class="card-actions">
+            <button class="btn btn-outline" onclick="openModal('esportes')">Detalhes Modal</button>
+            <a href="esportes.html" class="btn btn-primary">Ver Página →</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- CARD 6: SAÚDE -->
+      <article class="card-3d" data-category="saude">
+        <div>
+          <div class="card-header">
+            <div class="card-icon">🩺</div>
+            <span class="card-badge">Vitalidade</span>
+          </div>
+          <div class="card-body">
+            <h3>Saúde</h3>
+            <p>Hidratação diária, qualidade de sono, alimentação balanceada e suplementação.</p>
+          </div>
+        </div>
+        <div>
+          <div class="card-stats">
+            <div class="stat-item">
+              <div class="stat-value">24h</div>
+              <div class="stat-label">Monitoramento</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-value">95%</div>
+              <div class="stat-label">Concluído</div>
+            </div>
+          </div>
+          <div class="card-actions">
+            <button class="btn btn-outline" onclick="openModal('saude')">Detalhes Modal</button>
+            <a href="saude.html" class="btn btn-primary">Ver Página →</a>
+          </div>
+        </div>
+      </article>
+
+    </main>
+  </div>
+
+  <!-- MODAL FLUTUANTE 3D -->
+  <div class="modal-overlay" id="routineModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="modalTitle">🎓 Rotina de Estudo</h2>
+        <button class="modal-close" onclick="closeModal()">&times;</button>
+      </div>
+
+      <p style="color: var(--text-secondary); font-size: 0.95rem;">
+        Gerencie as tarefas ativas desta rotina para o dia de hoje:
+      </p>
+
+      <ul class="task-list" id="taskList">
+        <!-- Itens inseridos via Javascript -->
+      </ul>
+
+      <form class="add-task-form" onsubmit="handleAddTask(event)">
+        <input type="text" id="newTaskInput" class="input-task" placeholder="Adicionar nova atividade..." required>
+        <button type="submit" class="btn btn-primary" style="padding: 12px 20px
